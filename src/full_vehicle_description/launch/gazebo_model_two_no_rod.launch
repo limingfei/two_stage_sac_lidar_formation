@@ -13,11 +13,11 @@
     <!-- <arg name='world_name' value='$(find full_vehicle_description)/hospital/room_two_car_rod.world'/> -->
     <!-- <arg name='world_name' value='$(find full_vehicle_description)/hospital/intelligent_build.world'/> -->
     <!-- <arg name='world_name' value='$(find full_vehicle_description)/hospital/no_man_intelligent_build.world'/> -->
-    <arg name='world_name' value='$(find full_vehicle_description)/hospital/final_intelligent.world'/>
+    <!-- <arg name='world_name' value='$(find full_vehicle_description)/hospital/final_intelligent.world'/> -->
 
     <!-- <arg name='world_name' value='$(find full_vehicle_description)/hospital/test_agv.world'/> -->
     <!-- <arg name='world_name' value='$(find full_vehicle_description)/hospital/test.world'/> -->
-    <!-- <arg name='world_name' value='$(find full_vehicle_description)/hospital/test_cam_lidar.world'/> -->
+    <arg name='world_name' value='$(find full_vehicle_description)/hospital/test_cam_lidar.world'/>
   </include>
   <!-- <node
     name="tf_footprint_base1"
