@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="full_vehicle_description" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename='$(find full_vehicle_description)/urdf/inertial_matrix.xacro'/> 
+  <xacro:property name="PI" value="3.1415926"/>
+
+  <xacro:property name="wheel_radius" value="0.125" />
+  <xacro:property name="wheel_width" value="0.1" />
+  <xacro:property name='wheel_mass' value='30'/>
+
+
+  <xacro:property name='base_link_length' value='0.85'/>
+  <xacro:property name='base_link_width' value='0.5'/>
+  <xacro:property name='base_link_height' value='0.125'/>
+  <xacro:property name='base_link_mass' value='100'/>
+
+
+
+  <material name="yellow"><color rgba="0.8 0.8 0.0 1.0" /></material>
+  <material name="black"><color rgba="0.15 0.15 0.15 1.0" /></material>
+  <material name="dark_grey"><color rgba="0.2 0.2 0.2 1.0" /></material>
+  <material name="light_grey"><color rgba="0.4 0.4 0.4 1.0" /></material>
+
+  <link name="base_footprint"></link>
+
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0 0 0.05" rpy="0 0 0" />
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh filename="package://nexus_4wd_mecanum_description/meshes/nexus_base_link.STL" scale="0.001 0.001 0.001"/> -->
+        <mesh filename="package://full_vehicle_description/meshes/base_link.dae" />
+        <!-- <box size="${base_link_length} ${base_link_width} ${base_link_height}"/> -->
+
+      </geometry>
+      <material name="yellow" />
+    </visual>
+    <!-- <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/nexus_base_link_collision.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision> -->
+    <collision name='base_collision'>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <!-- <mesh
+          filename="package://full_vehicle_description/meshes/base_link.dae" /> -->
+          <box size="${base_link_length} ${base_link_width} ${base_link_height}"/>
+      </geometry>
+    </collision>
+    <!-- <inertial>
+      <origin xyz="-0.01103 0 0.002" rpy="0 0 0"/>
+      <mass value="2.844"/>
+      <inertia
+        ixx="0.018819942" ixy="0" ixz="-0.000101519"
+        iyy="0.057333716" iyz="0"
+        izz="0.074201740"/>
+    </inertial> -->
+    <xacro:Box_inertial_matrix m='${base_link_mass}' l='${base_link_length}' w='${base_link_width}' h='${base_link_height}'/>
+
+  </link>
+
+  <joint name="left_forward_wheel_link_shaft_joint" type="fixed">
+    <!-- <origin xyz="0.150 0.108 0.0" rpy="0 0 0" /> -->
+    <origin xyz="0.2565 0.265 0.0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="left_forward_wheel_link_shaft" />
+  </joint>
+
+  <link name="left_forward_wheel_link_shaft">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0.01221 0" rpy="0 0 0"/>
+      <mass value="0.055"/>
+      <inertia
+        ixx="0.000021370" ixy="0" ixz="0"
+        iyy="0.000009966" iyz="0"
+        izz="0.000021370"/>
+    </inertial>
+  </link>
+
+  <joint name="left_back_wheel_link_shaft_joint" type="fixed">
+    <!-- <origin xyz="-0.150 0.108 0.0" rpy="0 0 0" /> -->
+    <origin xyz="-0.2565 0.265 0.0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="left_back_wheel_link_shaft" />
+  </joint>
+
+  <link name="left_back_wheel_link_shaft">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0.01221 0" rpy="0 0 0"/>
+      <mass value="0.055"/>
+      <inertia
+        ixx="0.000021370" ixy="0" ixz="0"
+        iyy="0.000009966" iyz="0"
+        izz="0.000021370"/>
+    </inertial>
+  </link>
+
+  <joint name="right_forward_wheel_link_shaft_joint" type="fixed">
+    <origin xyz="0.2565 -0.265 0.0" rpy="${PI} 0 0" />
+    <parent link="base_link"/>
+    <child link="right_forward_wheel_link_shaft" />
+  </joint>
+
+  <link name="right_forward_wheel_link_shaft">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0.01221 0" rpy="0 0 0"/>
+      <mass value="0.055"/>
+      <inertia
+        ixx="0.000021370" ixy="0" ixz="0"
+        iyy="0.000009966" iyz="0"
+        izz="0.000021370"/>
+    </inertial>
+  </link>
+
+  <joint name="right_back_wheel_link_shaft_joint" type="fixed">
+    <origin xyz="-0.2565 -0.265 0.0" rpy="${PI} 0 0" />
+    <parent link="base_link"/>
+    <child link="right_back_wheel_link_shaft" />
+  </joint>
+
+  <link name="right_back_wheel_link_shaft">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://nexus_4wd_mecanum_description/meshes/wheel_shaft.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0.01221 0" rpy="0 0 0"/>
+      <mass value="0.055"/>
+      <inertia
+        ixx="0.000021370" ixy="0" ixz="0"
+        iyy="0.000009966" iyz="0"
+        izz="0.000021370"/>
+    </inertial>
+  </link>
+
+  <joint name="left_forward_wheel_link_joint" type="continuous">
+    <origin xyz="0 0.042 0" rpy="0 0 0" />
+    <parent link="left_forward_wheel_link_shaft"/>
+    <child link="left_forward_wheel_link" />
+    <axis xyz="0 1 0"/>
+  </joint>
+  
+  <link name="left_forward_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://full_vehicle_description/meshes/wheel.dae"/>
+      </geometry>
+      <material name="light_grey" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+      </geometry>
+    </collision>
+    <!-- <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.3844"/>
+  
+      <inertia
+        ixx="0.000324824" ixy="0" ixz="0"
+        iyy="0.000480000" iyz="0"
+        izz="0.000324824"/>
+    </inertial> -->
+    <xacro:cylinder_inertial_matrix m='${wheel_mass}' r='${wheel_radius}' h='${wheel_width}'/>
+
+  </link>
+
+  <joint name="left_back_wheel_link_joint" type="continuous">
+    <origin xyz="0 0.042 0" rpy="0 0 0" />
+    <parent link="left_back_wheel_link_shaft"/>
+    <child link="left_back_wheel_link" />
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="left_back_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://full_vehicle_description/meshes/wheel.dae"/>
+      </geometry>
+      <material name="light_grey" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+      </geometry>
+    </collision>
+    <!-- <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.3844"/>
+     
+      <inertia
+        ixx="0.000324824" ixy="0" ixz="0"
+        iyy="0.000480000" iyz="0"
+        izz="0.000324824"/>
+    </inertial> -->
+    <xacro:cylinder_inertial_matrix m='${wheel_mass}' r='${wheel_radius}' h='${wheel_width}'/>
+
+  </link>
+
+  <joint name="right_forward_wheel_link_joint" type="continuous">
+    <origin xyz="0 0.042 0" rpy="0 0 0" />
+    <parent link="right_forward_wheel_link_shaft"/>
+    <child link="right_forward_wheel_link" />
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="right_forward_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://full_vehicle_description/meshes/wheel.dae"/>
+      </geometry>
+      <material name="light_grey" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+      </geometry>
+    </collision>
+    <!-- <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.3844"/>
+
+      <inertia
+        ixx="0.000324824" ixy="0" ixz="0"
+        iyy="0.000480000" iyz="0"
+        izz="0.000324824"/>
+    </inertial> -->
+    <xacro:cylinder_inertial_matrix m='${wheel_mass}' r='${wheel_radius}' h='${wheel_width}'/>
+
+  </link>
+  
+  <joint name="right_back_wheel_link_joint" type="continuous">
+    <origin xyz="0 0.042 0" rpy="0 0 0" />
+    <parent link="right_back_wheel_link_shaft"/>
+    <child link="right_back_wheel_link" />
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="right_back_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://full_vehicle_description/meshes/wheel.dae"/>
+      </geometry>
+      <material name="light_grey" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="${PI/2} 0 0"/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+      </geometry>
+    </collision>
+    <!-- <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.3844"/>
+
+      <inertia
+        ixx="0.000324824" ixy="0" ixz="0"
+        iyy="0.000480000" iyz="0"
+        izz="0.000324824"/>
+    </inertial> -->
+    <xacro:cylinder_inertial_matrix m='${wheel_mass}' r='${wheel_radius}' h='${wheel_width}'/>
+
+  </link>
+<!-- ****************************************************************************************************************************************************************
+****************************************************************************************************************************************************************
+****************************************************************************************************************************************************************
+****************************************************************************************************************************************************************
+****************************************************************************************************************************************************************
+****************************************************************************************************************************************************************
+**************************************************************************************************************************************************************** -->
+  <link
+    name="laser_link">
+    <inertial>
+      <origin
+        xyz="-0.363520240304128 -0.00121887680693977 -0.244638475783943"
+        rpy="0 0 0" />
+      <mass
+        value="21.1298408585408" />
+      <inertia
+        ixx="1.89254066592857"
+        ixy="-0.0146092851561114"
+        ixz="0.212011898183227"
+        iyy="2.36684038601633"
+        iyz="0.00187505489579215"
+        izz="2.41660095526821" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/laser.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/laser.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="laser_2_base_joint"
+    type="fixed">
+    <origin
+      xyz="0.339 0 0.428650000000004"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="back_laser_link">
+    <inertial>
+      <origin
+        xyz="0.319114320382871 0.225281123193059 0.00911152421606259"
+        rpy="0 0 0" />
+      <mass
+        value="21.1298408585408" />
+      <inertia
+        ixx="1.89254066592857"
+        ixy="-0.0146092851561114"
+        ixz="0.212011898183227"
+        iyy="2.36684038601633"
+        iyz="0.00187505489579215"
+        izz="2.41660095526821" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_laser.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_laser.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_laser_2_base_joint"
+    type="fixed">
+    <origin
+      xyz="-0.343634560687 -0.2265 0.174899999999998"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_laser_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="forward_laser_link">
+    <inertial>
+      <origin
+        xyz="-0.369417356418929 -0.212189585338641 0.00911152421606107"
+        rpy="0 0 0" />
+      <mass
+        value="21.1298408585408" />
+      <inertia
+        ixx="1.89254066592857"
+        ixy="-0.0146092851561115"
+        ixz="0.212011898183227"
+        iyy="2.36684038601633"
+        iyz="0.00187505489579215"
+        izz="2.41660095526821" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_laser.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_laser.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="forward_laser_2_base_joint"
+    type="fixed">
+    <origin
+      xyz="0.3448971161148 0.2109707085317 0.174899999999999"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="forward_laser_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="forward_camera_link">
+    <inertial>
+      <origin
+        xyz="-0.0104200902716998 0.000776216895392756 -0.0136749571693403"
+        rpy="0 0 0" />
+      <mass
+        value="0.0622351737112097" />
+      <inertia
+        ixx="3.00406391595037E-05"
+        ixy="-2.50242417913487E-08"
+        ixz="2.04951886353508E-06"
+        iyy="9.72697947803115E-06"
+        iyz="-3.11308509816576E-09"
+        izz="3.17165322372168E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_camera.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_camera.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="forward_camera_2_base_joint"
+    type="fixed">
+    <origin
+      xyz="-0.276092612309405 0 0.621499999999999"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="forward_camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="left_camera_link">
+    <inertial>
+      <origin
+        xyz="-0.000776218778205162 -0.0104200897692898 -0.0136749515445058"
+        rpy="0 0 0" />
+      <mass
+        value="0.0622351918687411" />
+      <inertia
+        ixx="9.72698056987093E-06"
+        ixy="2.50245731474228E-08"
+        ixz="3.11345461582129E-09"
+        iyy="3.0040640606016E-05"
+        iyz="2.0495183206202E-06"
+        izz="3.17165335817044E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_camera.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_camera.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_camera_2_base_joint"
+    type="fixed">
+    <origin
+      xyz="-0.349000000000005 0.0729073876905981 0.621499999999999"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="back_camera_link">
+    <inertial>
+      <origin
+        xyz="0.0104200902716999 -0.000776216895392423 -0.0136749571693407"
+        rpy="0 0 0" />
+      <mass
+        value="0.0622351737112089" />
+      <inertia
+        ixx="3.00406391595041E-05"
+        ixy="-2.50242417915018E-08"
+        ixz="-2.04951886353514E-06"
+        iyy="9.72697947803101E-06"
+        iyz="3.11308509787832E-09"
+        izz="3.17165322372174E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_camera.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_camera.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_camera_2_base_joint"
+    type="fixed">
+    <origin
+      xyz="-0.421907387690605 0 0.621499999999999"
+      rpy="0 0 3.1415926" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="right_camera_link">
+    <inertial>
+      <origin
+        xyz="0.000776218778204885 0.0104200897692889 -0.0136749515445057"
+        rpy="0 0 0" />
+      <mass
+        value="0.0622351918687409" />
+      <inertia
+        ixx="9.72698056987084E-06"
+        ixy="2.50245731474465E-08"
+        ixz="-3.11345461583399E-09"
+        iyy="3.0040640606016E-05"
+        iyz="-2.04951832062001E-06"
+        izz="3.17165335817042E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_camera.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_camera.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_camera_2_base_joint"
+    type="fixed">
+    <origin
+      xyz="-0.349000000000005 -0.072907387690602 0.621499999999998"
+      rpy="0 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="low_forward_camera_link">
+    <inertial>
+      <origin
+        xyz="-0.0103805214564974 0.000864212420097155 -0.0137160048925175"
+        rpy="0 0 0" />
+      <mass
+        value="0.0624963423103168" />
+      <inertia
+        ixx="3.00489760808045E-05"
+        ixy="-2.50180220947062E-08"
+        ixz="2.04951830010421E-06"
+        iyy="9.72774773036661E-06"
+        iyz="-3.1096185889496E-09"
+        izz="3.17248699341636E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_camera.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/forward_camera.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="low_forward_camera_2_base_joint"
+    type="fixed">
+    <origin
+      xyz="0.37945 0 0.111525260710099"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="low_forward_camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="six_force_sensor_link">
+    <inertial>
+      <origin
+        xyz="-0.00471940679422367 -0.000280368815390508 0.00537764381274095"
+        rpy="0 0 0" />
+      <mass
+        value="0.00601964230504285" />
+      <inertia
+        ixx="1.31645407870486E-06"
+        ixy="-3.80993047731126E-09"
+        ixz="-4.28487280271515E-10"
+        iyy="1.38577698391472E-06"
+        iyz="-1.14811924777685E-10"
+        izz="2.6943780081789E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/six_force_sensor_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/six_force_sensor_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="six_force_sensor_2_base_joint"
+    type="fixed">
+    <origin
+      xyz="0.2065 0 0.54995"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="six_force_sensor_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="zhou_cheng_link">
+    <inertial>
+      <origin
+        xyz="0 -1.11022302462516E-16 -0.00393241358399035"
+        rpy="0 0 0" />
+      <mass
+        value="0.0647560785721196" />
+      <inertia
+        ixx="3.34392425479418E-05"
+        ixy="9.31224962504766E-22"
+        ixz="-2.37535048474964E-21"
+        iyy="3.34392425479418E-05"
+        iyz="-5.2011173403698E-20"
+        izz="4.80717996099715E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/zhou_cheng_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/zhou_cheng_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="zhou_cheng_2_six_force_sensor_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.0350000000000001"
+      rpy="0 0 0" />
+    <parent
+      link="six_force_sensor_link" />
+    <child
+      link="zhou_cheng_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="hua_tai_link">
+    <inertial>
+      <origin
+        xyz="-6.67966612284965E-05 -1.26736564576291E-08 -0.0041069521442284"
+        rpy="0 0 0" />
+      <mass
+        value="0.256384176065775" />
+      <inertia
+        ixx="6.41876147967836E-05"
+        ixy="1.15794752481101E-20"
+        ixz="4.79036265935901E-08"
+        iyy="0.000841164887120121"
+        iyz="2.16120317792963E-11"
+        izz="0.000847187586192112" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/hua_tai_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/hua_tai_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hua_tai_2_zhou_cheng_joint"
+    type="continuous">
+    <!-- <dynamics friction="0.01"/> -->
+    
+    <origin
+      xyz="0 0 0.05005"
+      rpy="0 0 0" />
+    <parent
+      link="zhou_cheng_link" />
+    <child
+      link="hua_tai_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="fixed_hua_kuai_link">
+    <inertial>
+      <origin
+        xyz="-2.0883E-05 1.1102E-16 0.0023382"
+        rpy="0 0 0" />
+      <mass
+        value="0.039152" />
+      <inertia
+        ixx="7.5157E-06"
+        ixy="1.4003E-21"
+        ixz="3.6261E-09"
+        iyy="1.3013E-05"
+        iyz="-1.7652E-20"
+        izz="1.7971E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/fixed_hua_kuai_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_vehicle_description/meshes/fixed_hua_kuai_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fixed_hua_kuai_2_hua_tai_joint"
+    type="prismatic">
+    <!-- <dynamics friction="0.01"/> -->
+    <origin
+      xyz="-0.007354 -5E-05 0.0355"
+      rpy="0 0 0" />
+    <parent
+      link="hua_tai_link" />
+    <child
+      link="fixed_hua_kuai_link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-0.05"
+      upper="0.05"
+      effort="50"
+      velocity="1" />
+  </joint>
+
+
+
+
+  <!-- <xacro:include filename='$(find full_vehicle_description)/urdf/full_vehicle_description_control.xacro'/> 
+  <xacro:include filename='$(find full_vehicle_description)/urdf/sensors.xacro'/>  -->
+  <gazebo>
+    <!--<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>-->
+
+    <plugin name="nexus_ros_force_based_move" filename="libnexus_ros_force_based_move.so">
+      <commandTopic>cmd_vel_nex</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>25.0</odometryRate>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <cmdVelTimeOut>0.25</cmdVelTimeOut>
+      <publishOdometryTf>0</publishOdometryTf>
+      <yaw_velocity_p_gain>100.0</yaw_velocity_p_gain>
+      <x_velocity_p_gain>1000.0</x_velocity_p_gain>
+      <y_velocity_p_gain>1000.0</y_velocity_p_gain>
+      <max_x_velocity>1.5</max_x_velocity>
+      <max_y_velocity>1.5</max_y_velocity>
+      <max_yaw_velocity>1.5</max_yaw_velocity>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="left_forward_wheel_link">
+    <!-- <material>Gazebo/Grey</material> -->
+    <mu1>0.001</mu1>
+    <mu2>0.001</mu2>
+  </gazebo>
+
+  <gazebo reference="left_back_wheel_link">
+    <!-- <material>Gazebo/Grey</material> -->
+    <mu1>0.001</mu1>
+    <mu2>0.001</mu2>
+  </gazebo>
+
+  <gazebo reference="right_forward_wheel_link">
+    <!-- <material>Gazebo/Grey</material> -->
+    <mu1>0.001</mu1>
+    <mu2>0.001</mu2>
+  </gazebo>
+
+  <gazebo reference="right_back_wheel_link">
+    <!-- <material>Gazebo/Grey</material> -->
+    <mu1>0.001</mu1>
+    <mu2>0.001</mu2>
+  </gazebo>
+
+
+
+</robot>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="sensors" xmlns:xacro="http://wiki.ros.org/xacro">
+    <!-- 被引用的link -->
+    <!-- <gazebo reference="${ns}_low_forward_camera_link">
+        
+        <sensor type="camera" name="${ns}_camera_node">
+          <update_rate>30.0</update_rate> 
+          <camera name="head">
+            <horizontal_fov>1.48352984</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>720</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.02</near>
+              <far>300</far>
+            </clip>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.007</stddev>
+            </noise>
+          </camera>
+          <plugin name="${ns}_gazebo_camera" filename="libgazebo_ros_camera.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>0.0</updateRate>
+            <cameraName>/${ns}_camera</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>camera</frameName>
+            <hackBaseline>0.07</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
+          </plugin>
+        </sensor>
+      </gazebo> -->
+
+      <!-- <gazebo reference="${ns}_forward_camera_link">
+        <sensor type="camera" name="${ns}_camera_node2">
+          <update_rate>30.0</update_rate> 
+          <camera name="head">
+            <horizontal_fov>1.48352984</horizontal_fov>
+            <image>
+              <width>1280</width>
+              <height>720</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.02</near>
+              <far>300</far>
+            </clip>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.007</stddev>
+            </noise>
+          </camera>
+          <plugin name="${ns}_gazebo_camera2" filename="libgazebo_ros_camera.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>0.0</updateRate>
+            <cameraName>/${ns}_camera2</cameraName>
+            <imageTopicName>forward_image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>camera</frameName>
+            <hackBaseline>0.07</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
+          </plugin>
+        </sensor>
+      </gazebo> -->
+
+
+
+
+        <!-- 雷达 -->
+  <!-- <xacro:if value="${ns == 'robot2'}">
+  <gazebo reference="${ns}_laser_link">
+    <sensor type="ray" name="rplidar">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>10</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-2.0</min_angle>
+            <max_angle>2.0</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>30.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="${ns}_gazebo_rplidar" filename="libgazebo_ros_laser.so">
+        <topicName>/${ns}_scan</topicName>
+        <frameName>${ns}_laser_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+  </xacro:if> -->
+  <!-- <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+  <VLP-16 parent="${ns}_laser_link" name="{ns}_velodyne" topic="/{ns}_velodyne_points" hz="10" samples="360" gpu="true" lasers="16" max_range="100">
+    <origin xyz="0 0 0.0" rpy="0 0 0" />
+  </VLP-16> -->
+
+  <xacro:if value="${ns != 'robot2'}">
+  <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+  <xacro:VLP-16 parent="${ns}_laser_link" name="${ns}_velodyne" topic="${ns}_velodyne_points" organize_cloud="true" hz="20" samples="440" gpu="true" min_angle='-1.04719753' max_angle='1.04719753' min_range='0.5' >
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:VLP-16>
+
+  <!-- <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+  
+  <xacro:sensor_d435 name="${ns}_camera" topics_ns="${ns}_camera" parent="${ns}_low_forward_camera_link" publish_pointcloud="true">
+    <origin
+      xyz="0. 0. 0. "
+      rpy="0 0 0" />
+  </xacro:sensor_d435>   -->
+    
+
+
+
+
+  </xacro:if>
+  
+
+
+</robot> 

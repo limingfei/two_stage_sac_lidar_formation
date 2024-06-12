@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="double_vehicle" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:property name='ns1' value='robot1' />
+  <xacro:property name='ns2' value='robot2' />
+  <!-- <xacro:property name='log_length' value='2.016' /> -->
+  <xacro:property name='log_radius' value='0.125' />
+  <!-- <xacro:property name='log_mass' value='18' /> -->
+  <!-- <xacro:property name='pi' value='3.1415926' /> -->
+  <xacro:include filename='$(find full_vehicle_description)/urdf/full_vehicle_description_func_change.xacro' />
+  <xacro:include filename='$(find full_vehicle_description)/urdf/full_vehicle_description_func.xacro' />
+  <xacro:single_vehicle_func_change ns='${ns2}'/>
+  <xacro:single_vehicle_func ns='${ns1}'/>
+  <!-- <xacro:single_vehicle_func ns='${ns2}'/> -->
+<!-- <link name='world'/>
+<joint name="world2base" type="floating">
+
+  <parent link="world"/>
+  <child link="${ns1}_base_link"/>
+  
+
+  
+</joint> -->
+
+
+  <!-- <link name='log_link'>
+    <visual>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0"/>
+        <geometry>
+            <cylinder radius="${log_radius}" length="${log_length}"/>
+        </geometry>        
+    </visual>
+    <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0"/>
+        <geometry>
+            <cylinder radius="${log_radius}" length="${log_length}"/>
+        </geometry>
+    </collision>
+    <inertial>
+        <mass value="${log_mass}"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0"/>
+        <inertia ixx="${log_mass*(3*log_radius*log_radius+log_length*log_length)/12}" ixy="0.0" ixz="0.0" iyy="${log_mass*(3*log_radius*log_radius+log_length*log_length)/12}" iyz="0.0" izz="${log_mass*log_radius*log_radius/2}"/>
+        
+    </inertial>
+  </link> -->
+  <joint name='log_2_${ns1}_fixed_hua_kuai_joint' type='fixed'>
+    <origin xyz="0.8 0.0 ${log_radius}" rpy="0.0 0.0 0.0"/>
+    <parent link="${ns1}_fixed_hua_kuai_link"/> 
+    <child link="log_link"/>
+  </joint>
+
+
+
+
+  
+
+
+
+  </robot>

@@ -1,0 +1,52 @@
+---
+exp_x_distance: 1.5
+x_max_distance: 2.3
+x_min_distance: 1.45
+y_max_distance: 0.25
+max_angle: 0.2
+# max_step: 1300
+max_step: 250
+time_noise: 0.0
+pos_noise: 0.01
+pub_leader_rate: 50
+set_random_seed: True
+obs_with_velocity: True
+obs_with_relative_velocity: True
+obs_with_time: False
+noise: False
+point_cloud_with_velocity: False
+point_cloud: True
+# low_bound:
+#   - -0.6
+#   - -0.8
+#   - -0.15
+# robot2_low_bound:
+#   - -0.4
+#   - -0.6
+#   - -0.1
+# high_bound:
+#   - 0.6
+#   - 0.8
+#   - 0.15
+# robot2_high_bound:
+#   - 0.4
+#   - 0.6
+#   - 0.1
+
+low_bound:
+  - -0.3
+  - -0.4
+  - -0.225
+robot2_low_bound:
+  - -0.2
+  - -0.2
+  - -0.15
+high_bound:
+  - 0.3
+  - 0.4
+  - 0.225
+robot2_high_bound:
+  - 0.2
+  - 0.2
+  - 0.15
+...

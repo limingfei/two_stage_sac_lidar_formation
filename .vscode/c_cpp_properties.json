@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/lmf/rsac/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/lmf/rsac/src/gazebo_mecanum_plugins/include/**",
+        "/home/lmf/rsac/src/nexus_4wd_mecanum_gazebo/include/**",
+        "/home/lmf/rsac/src/rl_enviroment/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

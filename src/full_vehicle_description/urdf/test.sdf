@@ -1,0 +1,668 @@
+<sdf version='1.7'>
+  <model name='full_vehicle_description'>
+    <link name='base_link'>
+      <inertial>
+        <pose>-0.009791 -0.000471 0.072435 0 -0 0</pose>
+        <mass>163.772</mass>
+        <inertia>
+          <ixx>15.6236</ixx>
+          <ixy>-0.0449841</ixy>
+          <ixz>0.848006</ixz>
+          <iyy>16.6731</iyy>
+          <iyz>0.0142455</iyz>
+          <izz>11.9198</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_fixed_joint_lump__base_collision_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/base_link.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__back_camera_link_collision_1'>
+        <pose>-0.421907 0 0.6215 0 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_camera.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__back_laser_link_collision_2'>
+        <pose>-0.343635 -0.2265 0.1749 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_laser.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__forward_camera_link_collision_3'>
+        <pose>-0.276093 0 0.6215 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_camera.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__forward_laser_link_collision_4'>
+        <pose>0.344897 0.210971 0.1749 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_laser.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__laser_link_collision_5'>
+        <pose>0.339 0 0.42865 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/laser.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__left_camera_link_collision_6'>
+        <pose>-0.349 0.072907 0.6215 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_camera.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__low_forward_camera_link_collision_7'>
+        <pose>0.37945 0 0.111525 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_camera.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__right_camera_link_collision_8'>
+        <pose>-0.349 -0.072907 0.6215 0 0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_camera.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__six_force_sensor_link_collision_9'>
+        <pose>0.2065 0 0.54995 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/six_force_sensor_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__zhou_cheng_link_collision_10'>
+        <pose>0.2065 0 0.58495 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/zhou_cheng_link.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/base_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__back_camera_link_visual_1'>
+        <pose>-0.421907 0 0.6215 0 -0 3.14159</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_camera.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__back_laser_link_visual_2'>
+        <pose>-0.343635 -0.2265 0.1749 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_laser.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__forward_camera_link_visual_3'>
+        <pose>-0.276093 0 0.6215 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_camera.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__forward_laser_link_visual_4'>
+        <pose>0.344897 0.210971 0.1749 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_laser.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__laser_link_visual_5'>
+        <pose>0.339 0 0.42865 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/laser.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__left_camera_link_visual_6'>
+        <pose>-0.349 0.072907 0.6215 0 -0 1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_camera.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__low_forward_camera_link_visual_7'>
+        <pose>0.37945 0 0.111525 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_camera.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__right_camera_link_visual_8'>
+        <pose>-0.349 -0.072907 0.6215 0 0 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/forward_camera.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__six_force_sensor_link_visual_9'>
+        <pose>0.2065 0 0.54995 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/six_force_sensor_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__zhou_cheng_link_visual_10'>
+        <pose>0.2065 0 0.58495 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/zhou_cheng_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <sensor name='camera_node2' type='camera'>
+        <update_rate>30</update_rate>
+        <camera name='head'>
+          <horizontal_fov>1.48353</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <plugin name='gazebo_camera2' filename='libgazebo_ros_camera.so'>
+          <alwaysOn>1</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>/camera2</cameraName>
+          <imageTopicName>/forward_image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>camera</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+        <pose>-0.276093 0 0.6215 0 -0 0</pose>
+      </sensor>
+      <sensor name='camera_node' type='camera'>
+        <update_rate>30</update_rate>
+        <camera name='head'>
+          <horizontal_fov>1.48353</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <plugin name='gazebo_camera' filename='libgazebo_ros_camera.so'>
+          <alwaysOn>1</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>/camera</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>camera</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+        <pose>0.37945 0 0.111525 0 -0 0</pose>
+      </sensor>
+      <num1>0.001</num1>
+      <num2>0.001</num2>
+    </link>
+    <joint name='left_back_wheel_base_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.2565 0.265 -0.008 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>left_back_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_back_wheel_link'>
+      <pose relative_to='left_back_wheel_base_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>15</mass>
+        <inertia>
+          <ixx>0.0710937</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0710937</iyy>
+          <iyz>0</iyz>
+          <izz>0.117188</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_back_wheel_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='left_back_wheel_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <num1>1</num1>
+      <num2>1</num2>
+    </link>
+    <joint name='left_forward_wheel_2_base_joint' type='revolute'>
+      <pose relative_to='base_link'>0.2565 0.265 0.008 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>left_forward_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_forward_wheel_link'>
+      <pose relative_to='left_forward_wheel_2_base_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>15</mass>
+        <inertia>
+          <ixx>0.0710937</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0710937</iyy>
+          <iyz>0</iyz>
+          <izz>0.117188</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_forward_wheel_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='left_forward_wheel_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <num1>1</num1>
+      <num2>1</num2>
+    </link>
+    <joint name='right_back_wheel_2_base_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.2565 -0.265 -0.008 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>right_back_wheel_link</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_back_wheel_link'>
+      <pose relative_to='right_back_wheel_2_base_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>15</mass>
+        <inertia>
+          <ixx>0.0710937</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0710937</iyy>
+          <iyz>0</iyz>
+          <izz>0.117188</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_back_wheel_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/right_forward_wheel.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_back_wheel_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/right_forward_wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <num1>1</num1>
+      <num2>1</num2>
+    </link>
+    <joint name='right_forward_wheel_2_base_joint' type='revolute'>
+      <pose relative_to='base_link'>0.2565 -0.265 0.008 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>right_forward_wheel_link</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_forward_wheel_link'>
+      <pose relative_to='right_forward_wheel_2_base_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>15</mass>
+        <inertia>
+          <ixx>0.0710937</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0710937</iyy>
+          <iyz>0</iyz>
+          <izz>0.117188</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_forward_wheel_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/right_forward_wheel.dae</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_forward_wheel_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/right_forward_wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <num1>1</num1>
+      <num2>1</num2>
+    </link>
+    <joint name='hua_tai_2_zhou_cheng_joint' type='revolute'>
+      <pose relative_to='base_link'>0.2065 0 0.635 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>hua_tai_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='hua_tai_link'>
+      <pose relative_to='hua_tai_2_zhou_cheng_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-6.7e-05 -0 -0.004107 0 -0 0</pose>
+        <mass>0.256384</mass>
+        <inertia>
+          <ixx>6.41876e-05</ixx>
+          <ixy>1.15795e-20</ixy>
+          <ixz>4.79036e-08</ixz>
+          <iyy>0.000841165</iyy>
+          <iyz>2.1612e-11</iyz>
+          <izz>0.000847188</izz>
+        </inertia>
+      </inertial>
+      <collision name='hua_tai_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/hua_tai_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='hua_tai_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/hua_tai_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='fixed_hua_kuai_2_hua_tai_joint' type='prismatic'>
+      <pose relative_to='hua_tai_link'>-0.007354 -5e-05 0.0355 0 -0 0</pose>
+      <parent>hua_tai_link</parent>
+      <child>fixed_hua_kuai_link</child>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-0.05</lower>
+          <upper>0.05</upper>
+          <effort>50</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0</damping>
+          <friction>0.01</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='fixed_hua_kuai_link'>
+      <pose relative_to='fixed_hua_kuai_2_hua_tai_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-2.1e-05 0 0.002338 0 -0 0</pose>
+        <mass>0.039152</mass>
+        <inertia>
+          <ixx>7.5157e-06</ixx>
+          <ixy>1.4003e-21</ixy>
+          <ixz>3.6261e-09</ixz>
+          <iyy>1.3013e-05</iyy>
+          <iyz>-1.7652e-20</iyz>
+          <izz>1.7971e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='fixed_hua_kuai_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/fixed_hua_kuai_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='fixed_hua_kuai_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://full_vehicle_description/meshes/fixed_hua_kuai_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <static>0</static>
+    <plugin name='object_controller' filename='libgazebo_ros_planar_move.so'>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>25.0</odometryRate>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+  </model>
+</sdf>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="${ns}_full_vehicle_description_control" xmlns:xacro="http://wiki.ros.org/xacro">
+  <!-- <gazebo>
+
+    <plugin name="${ns}_object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>${ns}_cmd_vel</commandTopic>
+      <odometryTopic>${ns}_odom</odometryTopic>
+      <odometryFrame>${ns}_odom</odometryFrame>
+      <odometryRate>25.0</odometryRate>
+      <robotBaseFrame>${ns}_base_link</robotBaseFrame>
+    </plugin>
+  </gazebo> -->
+  <gazebo>
+    <!--<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>-->
+
+    
+    <plugin name="${ns}_object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>${ns}_cmd_vel</commandTopic>
+      <odometryTopic>${ns}_odom</odometryTopic>
+      <odometryFrame>${ns}_odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>${ns}_base_footprint</robotBaseFrame>
+    </plugin>
+ 
+
+
+    <!-- <plugin name="${ns}_object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>${ns}_cmd_vel</commandTopic>
+      <odometryTopic>${ns}_odom</odometryTopic>
+      <odometryFrame>${ns}_odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>${ns}_base_footprint</robotBaseFrame>
+    </plugin> -->
+
+  </gazebo>
+
+  <gazebo reference="${ns}_left_forward_wheel_link">
+    <!-- <material>Gazebo/Grey</material> -->
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+  </gazebo>
+
+  <gazebo reference="${ns}_left_back_wheel_link">
+    <!-- <material>Gazebo/Grey</material> -->
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
+  </gazebo>
+
+  <gazebo reference="${ns}_right_forward_wheel_link">
+    <!-- <material>Gazebo/Grey</material> -->
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
+  </gazebo>
+
+  <gazebo reference="${ns}_right_back_wheel_link">
+    <!-- <material>Gazebo/Grey</material> -->
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
+  </gazebo>
+
+
+
+  <!-- <gazebo>
+    <plugin name="model_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>10</updateRate>
+      <bumperTopicName>model_bumper</bumperTopicName>
+      <frameName>base_link</frameName>
+    </plugin>
+  </gazebo> -->
+
+
+  <gazebo reference="${ns}_base_link">
+    <sensor name="${ns}_contacts" type="contact">
+        <contact>
+          <collision>${ns}_base_footprint_fixed_joint_lump__base_collision_collision</collision>
+        </contact>
+        <plugin name="${ns}_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+          <always_on>true</always_on>
+          <robotNamespace>/${ns}_robot</robotNamespace>
+          <bumperTopicName>bumper_states</bumperTopicName>
+          <frameName>bumper</frameName>
+          <visualize>true</visualize>
+          <update_rate>50.0</update_rate>        
+        </plugin>
+    </sensor>
+    <!-- <material>Gazebo/Red</material> -->
+    <!-- <mu1>0.1</mu1>
+    <mu2>0.1</mu2> -->
+    <gravity>true</gravity>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+
+</robot>

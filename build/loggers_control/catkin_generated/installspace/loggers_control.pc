@@ -1,0 +1,8 @@
+prefix=/home/lmf/rsac-lidar/install
+
+Name: loggers_control
+Description: Description of loggers_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,5 @@
+<launch>
+  <param name="robot_description" command="cat /home/lmf/rsac-lidar/src/full_vehicle_description/urdf/test3.urdf"/>
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model agv_pair" output="screen"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+</launch>

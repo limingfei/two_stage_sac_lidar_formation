@@ -1,0 +1,6 @@
+<launch>
+<node
+    name="train_rl"
+    pkg="rl_enviroment"
+    type="train_lidar_finetune.py" />
+</launch>

@@ -1,0 +1,32 @@
+---
+exp_x_distance: 1.5
+x_max_distance: 1.55
+x_min_distance: 1.45
+y_max_distance: 0.05
+max_angle: 0.15
+max_step: 200
+time_noise: 0.0
+pos_noise: 0.01
+pub_leader_rate: 50
+set_random_seed: False
+obs_with_velocity: True
+obs_with_relative_velocity: False
+obs_with_time: False
+noise: False
+low_bound:
+  - -0.3
+  - -0.4
+  - -0.15
+robot2_low_bound:
+  - -0.2
+  - -0.2
+  - -0.1
+high_bound:
+  - 0.4
+  - 0.4
+  - 0.15
+robot2_high_bound:
+  - 0.3
+  - 0.2
+  - 0.1
+...

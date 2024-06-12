@@ -1,0 +1,9 @@
+<launch>
+<include
+    file="$(find full_vehicle_description)/launch/gazebo_model_two_no_rod.launch" >
+</include>
+<node
+    name="simulator_env"
+    pkg="rl_enviroment"
+    type="test.py" />
+</launch>

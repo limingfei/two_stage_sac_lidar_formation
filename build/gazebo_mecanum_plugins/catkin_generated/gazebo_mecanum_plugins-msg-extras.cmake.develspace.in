@@ -1,0 +1,2 @@
+set(gazebo_mecanum_plugins_MESSAGE_FILES "/home/lmf/rsac-lidar/src/gazebo_mecanum_plugins/msg/gazebo_mecanum_plugins_vel.msg;/home/lmf/rsac-lidar/src/gazebo_mecanum_plugins/msg/gazebo_mecanum_plugins_pid.msg")
+set(gazebo_mecanum_plugins_SERVICE_FILES "")

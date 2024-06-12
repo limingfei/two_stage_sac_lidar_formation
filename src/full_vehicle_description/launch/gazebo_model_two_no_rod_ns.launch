@@ -1,0 +1,52 @@
+<launch>
+  <include
+    file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name="gui" value="true" />
+    <!-- <arg name='world_name' value='$(find full_vehicle_description)/hospital/room_two_car_rod.world'/> -->
+    <!-- <arg name='world_name' value='$(find full_vehicle_description)/hospital/intelligent_build.world'/> -->
+    <!-- <arg name='world_name' value='$(find full_vehicle_description)/hospital/test_agv.world'/> -->
+    <!-- <arg name='world_name' value='$(find full_vehicle_description)/map/test_1.world'/> -->
+  </include>
+
+<group ns="mycar1">
+  <param name='robot_description1' command="$(find xacro)/xacro --inorder $(find full_vehicle_description)/urdf/single_vehicle_no_rod1.xacro" />
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args=" -urdf -model mycar1 -param robot_description1 -x -1.5 -y 0.0 -z 0.1 "
+    output="screen" /> 
+    <node name="joint_state_publisher_1" pkg="joint_state_publisher" type="joint_state_publisher"> 
+    <remap from="robot_description" to="robot_description1" />
+    <param name="publish_frequency" type="double" value="30.0" />
+    </node>
+
+    <node name="robot_state_publisher_1" pkg="robot_state_publisher" type="robot_state_publisher"> 
+        <remap from="robot_description" to="robot_description1" />
+        <param name="publish_frequency" type="double" value="30.0" />
+    </node>
+</group>
+
+
+<group ns="mycar2">
+  <param name='robot_description1' command="$(find xacro)/xacro --inorder $(find full_vehicle_description)/urdf/single_vehicle_no_rod1.xacro" />
+    
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args=" -urdf -model mycar2 -param robot_description1 -x 0.0 -y 0.0 -z 0.1 "
+    output="screen" /> 
+    <node name="joint_state_publisher_1" pkg="joint_state_publisher" type="joint_state_publisher"> 
+    <remap from="robot_description" to="robot_description1" />
+    <param name="publish_frequency" type="double" value="30.0" />
+    </node>
+
+    <node name="robot_state_publisher_1" pkg="robot_state_publisher" type="robot_state_publisher"> 
+        <remap from="robot_description" to="robot_description1" />
+        <param name="publish_frequency" type="double" value="30.0" />
+    </node>
+</group>
+  
+
+</launch>

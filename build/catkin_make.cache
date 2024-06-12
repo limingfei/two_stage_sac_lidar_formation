@@ -1,0 +1,2 @@
+full_vehicle_description:gazebo_mecanum_plugins:loggers_control:loggers_description:loggers_gazebo:nexus_4wd_mecanum_description:nexus_4wd_mecanum_gazebo:pointcloud_to_laserscan:realsense2_description:realsense_gazebo_plugin:rl_enviroment
+-DCATKIN_DEVEL_PREFIX=/home/lmf/rsac-lidar/devel -DCMAKE_INSTALL_PREFIX=/home/lmf/rsac-lidar/install -G Unix Makefiles

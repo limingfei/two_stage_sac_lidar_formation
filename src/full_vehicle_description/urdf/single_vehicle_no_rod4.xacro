@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="single_vehicle2" xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:include filename='$(find full_vehicle_description)/urdf/full_vehicle_description_no_rod_func.xacro' />
+  <xacro:single_vehicle_func ns='robot4'/>
+
+  </robot>

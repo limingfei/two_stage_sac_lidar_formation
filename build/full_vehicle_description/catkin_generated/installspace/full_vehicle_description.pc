@@ -1,0 +1,8 @@
+prefix=/home/lmf/rsac-lidar/install
+
+Name: full_vehicle_description
+Description: Description of full_vehicle_description
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

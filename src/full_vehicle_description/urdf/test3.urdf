@@ -1,0 +1,159 @@
+<robot name="agv_pair">
+
+  <!-- Define materials -->
+  <material name="blue">
+    <color rgba="0 0 1 1"/>
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="grey">
+    <color rgba="0.5 0.5 0.5 1"/>
+  </material>
+
+  <!-- Define the first AGV -->
+  <link name="base_link_agv1">
+    <visual>
+      <geometry>
+        <box size="1 0.5 0.2"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="1 0.5 0.2"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_wheel_agv1">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_wheel_agv1">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wheel_joint_agv1" type="continuous">
+    <parent link="base_link_agv1"/>
+    <child link="left_wheel_agv1"/>
+    <origin xyz="-0.4 0.25 0" rpy="0 1.5708 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="right_wheel_joint_agv1" type="continuous">
+    <parent link="base_link_agv1"/>
+    <child link="right_wheel_agv1"/>
+    <origin xyz="-0.4 -0.25 0" rpy="0 1.5708 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- Define the second AGV -->
+  <link name="base_link_agv2">
+    <visual>
+      <geometry>
+        <box size="1 0.5 0.2"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="1 0.5 0.2"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_wheel_agv2">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="right_wheel_agv2">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wheel_joint_agv2" type="continuous">
+    <parent link="base_link_agv2"/>
+    <child link="left_wheel_agv2"/>
+    <origin xyz="0.4 0.25 0" rpy="0 1.5708 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="right_wheel_joint_agv2" type="continuous">
+    <parent link="base_link_agv2"/>
+    <child link="right_wheel_agv2"/>
+    <origin xyz="0.4 -0.25 0" rpy="0 1.5708 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- Define the rod connecting the AGVs -->
+  <link name="connecting_rod">
+    <visual>
+      <geometry>
+        <cylinder radius="0.05" length="1.0"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.05" length="1.0"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Joints connecting the rod to the AGVs -->
+  <joint name="rod_to_agv1" type="fixed">
+    <parent link="connecting_rod"/>
+    <child link="base_link_agv1"/>
+    <origin xyz="-0.5 0 0.1" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="rod_to_agv2" type="fixed">
+    <parent link="connecting_rod"/>
+    <child link="base_link_agv2"/>
+    <origin xyz="0.5 0 0.1" rpy="0 0 0"/>
+  </joint>
+
+</robot>

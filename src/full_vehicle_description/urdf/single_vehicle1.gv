@@ -1,0 +1,68 @@
+digraph G {
+node [shape=box];
+"robot1_base_footprint" [label="robot1_base_footprint"];
+"robot1_base_link" [label="robot1_base_link"];
+"robot1_back_camera_link" [label="robot1_back_camera_link"];
+"robot1_back_laser_link" [label="robot1_back_laser_link"];
+"robot1_forward_camera_link" [label="robot1_forward_camera_link"];
+"robot1_forward_laser_link" [label="robot1_forward_laser_link"];
+"robot1_laser_link" [label="robot1_laser_link"];
+"robot1_left_back_wheel_link_shaft" [label="robot1_left_back_wheel_link_shaft"];
+"robot1_left_back_wheel_link" [label="robot1_left_back_wheel_link"];
+"robot1_left_camera_link" [label="robot1_left_camera_link"];
+"robot1_left_forward_wheel_link_shaft" [label="robot1_left_forward_wheel_link_shaft"];
+"robot1_left_forward_wheel_link" [label="robot1_left_forward_wheel_link"];
+"robot1_low_forward_camera_link" [label="robot1_low_forward_camera_link"];
+"robot1_right_back_wheel_link_shaft" [label="robot1_right_back_wheel_link_shaft"];
+"robot1_right_back_wheel_link" [label="robot1_right_back_wheel_link"];
+"robot1_right_camera_link" [label="robot1_right_camera_link"];
+"robot1_right_forward_wheel_link_shaft" [label="robot1_right_forward_wheel_link_shaft"];
+"robot1_right_forward_wheel_link" [label="robot1_right_forward_wheel_link"];
+"robot1_six_force_sensor_link" [label="robot1_six_force_sensor_link"];
+"robot1_zhou_cheng_link" [label="robot1_zhou_cheng_link"];
+"robot1_hua_tai_link" [label="robot1_hua_tai_link"];
+"robot1_fixed_hua_kuai_link" [label="robot1_fixed_hua_kuai_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"robot1_base_footprint" -> "robot1_base_link_joint" [label="xyz: 0 0 0.05 \nrpy: 0 -0 0"]
+"robot1_base_link_joint" -> "robot1_base_link"
+"robot1_base_link" -> "robot1_back_camera_2_base_joint" [label="xyz: -0.421907 0 0.6215 \nrpy: 0 -0 3.14159"]
+"robot1_back_camera_2_base_joint" -> "robot1_back_camera_link"
+"robot1_base_link" -> "robot1_back_laser_2_base_joint" [label="xyz: -0.343635 -0.2265 0.1749 \nrpy: 0 -0 0"]
+"robot1_back_laser_2_base_joint" -> "robot1_back_laser_link"
+"robot1_base_link" -> "robot1_forward_camera_2_base_joint" [label="xyz: -0.276093 0 0.6215 \nrpy: 0 -0 0"]
+"robot1_forward_camera_2_base_joint" -> "robot1_forward_camera_link"
+"robot1_base_link" -> "robot1_forward_laser_2_base_joint" [label="xyz: 0.344897 0.210971 0.1749 \nrpy: 0 -0 0"]
+"robot1_forward_laser_2_base_joint" -> "robot1_forward_laser_link"
+"robot1_base_link" -> "robot1_laser_2_base_joint" [label="xyz: 0.339 0 0.42865 \nrpy: 0 -0 0"]
+"robot1_laser_2_base_joint" -> "robot1_laser_link"
+"robot1_base_link" -> "robot1_left_back_wheel_link_shaft_joint" [label="xyz: -0.2565 0.265 0 \nrpy: 0 -0 0"]
+"robot1_left_back_wheel_link_shaft_joint" -> "robot1_left_back_wheel_link_shaft"
+"robot1_left_back_wheel_link_shaft" -> "robot1_left_back_wheel_link_joint" [label="xyz: 0 0.042 0 \nrpy: 0 -0 0"]
+"robot1_left_back_wheel_link_joint" -> "robot1_left_back_wheel_link"
+"robot1_base_link" -> "robot1_left_camera_2_base_joint" [label="xyz: -0.349 0.0729074 0.6215 \nrpy: 0 -0 1.5708"]
+"robot1_left_camera_2_base_joint" -> "robot1_left_camera_link"
+"robot1_base_link" -> "robot1_left_forward_wheel_link_shaft_joint" [label="xyz: 0.2565 0.265 0 \nrpy: 0 -0 0"]
+"robot1_left_forward_wheel_link_shaft_joint" -> "robot1_left_forward_wheel_link_shaft"
+"robot1_left_forward_wheel_link_shaft" -> "robot1_left_forward_wheel_link_joint" [label="xyz: 0 0.042 0 \nrpy: 0 -0 0"]
+"robot1_left_forward_wheel_link_joint" -> "robot1_left_forward_wheel_link"
+"robot1_base_link" -> "robot1_low_forward_camera_2_base_joint" [label="xyz: 0.37945 0 0.111525 \nrpy: 0 -0 0"]
+"robot1_low_forward_camera_2_base_joint" -> "robot1_low_forward_camera_link"
+"robot1_base_link" -> "robot1_right_back_wheel_link_shaft_joint" [label="xyz: -0.2565 -0.265 0 \nrpy: 3.14159 -0 0"]
+"robot1_right_back_wheel_link_shaft_joint" -> "robot1_right_back_wheel_link_shaft"
+"robot1_right_back_wheel_link_shaft" -> "robot1_right_back_wheel_link_joint" [label="xyz: 0 0.042 0 \nrpy: 0 -0 0"]
+"robot1_right_back_wheel_link_joint" -> "robot1_right_back_wheel_link"
+"robot1_base_link" -> "robot1_right_camera_2_base_joint" [label="xyz: -0.349 -0.0729074 0.6215 \nrpy: 0 0 -1.5708"]
+"robot1_right_camera_2_base_joint" -> "robot1_right_camera_link"
+"robot1_base_link" -> "robot1_right_forward_wheel_link_shaft_joint" [label="xyz: 0.2565 -0.265 0 \nrpy: 3.14159 -0 0"]
+"robot1_right_forward_wheel_link_shaft_joint" -> "robot1_right_forward_wheel_link_shaft"
+"robot1_right_forward_wheel_link_shaft" -> "robot1_right_forward_wheel_link_joint" [label="xyz: 0 0.042 0 \nrpy: 0 -0 0"]
+"robot1_right_forward_wheel_link_joint" -> "robot1_right_forward_wheel_link"
+"robot1_base_link" -> "robot1_six_force_sensor_2_base_joint" [label="xyz: 0.2065 0 0.54995 \nrpy: 0 -0 0"]
+"robot1_six_force_sensor_2_base_joint" -> "robot1_six_force_sensor_link"
+"robot1_six_force_sensor_link" -> "robot1_zhou_cheng_2_six_force_sensor_joint" [label="xyz: 0 0 0.035 \nrpy: 0 -0 0"]
+"robot1_zhou_cheng_2_six_force_sensor_joint" -> "robot1_zhou_cheng_link"
+"robot1_zhou_cheng_link" -> "robot1_hua_tai_2_zhou_cheng_joint" [label="xyz: 0 0 0.05005 \nrpy: 0 -0 0"]
+"robot1_hua_tai_2_zhou_cheng_joint" -> "robot1_hua_tai_link"
+"robot1_hua_tai_link" -> "robot1_fixed_hua_kuai_2_hua_tai_joint" [label="xyz: -0.007354 -5e-05 0.0355 \nrpy: 0 -0 0"]
+"robot1_fixed_hua_kuai_2_hua_tai_joint" -> "robot1_fixed_hua_kuai_link"
+}

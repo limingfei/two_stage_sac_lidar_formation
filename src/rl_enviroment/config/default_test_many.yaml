@@ -1,0 +1,81 @@
+---
+exp_x_distance:
+  - 1.5
+  - 1.5
+  - 1.5
+  # - 1.5
+exp_y_distance:
+  - 0.0
+  - 0.0
+  - 0.0
+  # - 0.0
+x_max_distance:
+  - 1.55
+  - 1.55
+  - 1.55
+  # - 1.55
+y_max_distance:
+  - 0.05
+  - 0.55
+  - 0.05
+  # - 0.05
+x_min_distance:
+  - 1.45
+  - 1.45
+  - 1.45
+  # - 1.45
+y_min_distance:
+  - -0.05
+  - -0.05
+  - -0.05
+  # - -0.05
+max_angle: 0.15
+max_step: 200
+time_noise: 0.0
+pos_noise: 0.01
+pub_leader_rate: 50
+set_random_seed: True
+obs_with_velocity: True
+obs_with_relative_velocity: True
+obs_with_time: False
+noise: False
+leader_mode: straight
+
+point_clound_topics:
+  - robot1_velodyne_points
+  - robot3_velodyne_points
+  - robot4_velodyne_points
+low_bound:
+  - -0.3
+  - -0.4
+  - -0.15
+robot2_low_bound:
+  - -0.2
+  - -0.2
+  - -0.1
+high_bound:
+  - 0.3
+  - 0.4
+  - 0.15
+robot2_high_bound:
+  - 0.2
+  - 0.2
+  - 0.1
+followers:
+  - name: follower1
+    follower_cmd: /robot1_cmd_vel
+    leader: mycar2
+    follower: mycar1
+  - name: follower2
+    follower_cmd: /robot3_cmd_vel
+    leader: mycar1
+    follower: mycar3
+  - name: follower3
+    follower_cmd: /robot4_cmd_vel
+    leader: mycar3
+    follower: mycar4
+  # - name: follower4
+  #   follower_cmd: /robot5_cmd_vel
+  #   leader: mycar3
+  #   follower: mycar5
+...

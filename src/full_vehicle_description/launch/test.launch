@@ -1,0 +1,18 @@
+<launch>
+  <!-- Start Gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+  <param name='robot1_description' textfile='$(find full_vehicle_description)/urdf/test/robot1.urdf'/>
+  <param name='robot2_description' textfile='$(find full_vehicle_description)/urdf/test/robot2.urdf'/>
+  <param name='linkage_description' textfile='$(find full_vehicle_description)/urdf/test/link.urdf'/>
+  <!-- <param name='robot_description_rod' command='$(find xacro)/xacro $(find full_vehicle_description)/urdf/rod_link.xacro'/> -->
+  <!-- <param name='robot_description_rod' command='$(find xacro)/xacro $(find full_vehicle_description)/urdf/rod_link.xacro'/> -->
+
+  <!-- Spawn robot1 -->
+  <node name="spawn_robot1" pkg="gazebo_ros" type="spawn_model" args="-urdf -model robot1 -param robot1_description -x 0 -y 0 -z 0"/>
+
+  <!-- Spawn robot2 -->
+  <node name="spawn_robot2" pkg="gazebo_ros" type="spawn_model" args="-urdf -model robot2 -param robot2_description -x 1 -y 0 -z 0"/>
+
+  <!-- Spawn linkage -->
+  <node name="spawn_linkage" pkg="gazebo_ros" type="spawn_model" args="-urdf -model linkage -param linkage_description -x 0.5 -y 0 -z 0.2"/>
+</launch>
